@@ -4,12 +4,12 @@
   <App xmlns="" ProductID="{3704b725-bf1d-4725-aabc-e5b6c7ecc092}" Title="BluetoothTest" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="BluetoothTest author" Description="Sample description" Publisher="BluetoothTest" PublisherID="{47cffc62-442e-4823-84e8-5e4f85b4f92f}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
-      <Capability Name="ID_CAP_NETWORKING" />
       <Capability Name="ID_CAP_MEDIALIB_AUDIO" />
       <Capability Name="ID_CAP_MEDIALIB_PLAYBACK" />
       <Capability Name="ID_CAP_SENSORS" />
       <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
       <Capability Name="ID_CAP_PROXIMITY" />
+      <Capability Name="ID_CAP_NETWORKING" />
     </Capabilities>
     <Tasks>
       <DefaultTask Name="_default" NavigationPage="MainPage.xaml" />
