@@ -48,10 +48,10 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <TextBlock x:Name="textOutput" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="607" Width="456" FontFamily="Courier New"/>
+            <TextBlock x:Name="textOutput" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="562" Width="456" FontFamily="Courier New" Margin="0,45,0,0"/>
             <TextBox x:Name="n8textbox" HorizontalAlignment="Left" Height="72" Margin="-18,-46,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="340"/>
             <Button x:Name="n8button" Content="Button" HorizontalAlignment="Left" Margin="322,-46,-21,0" VerticalAlignment="Top" Width="155"/>
-            
+
         </Grid>
 
 

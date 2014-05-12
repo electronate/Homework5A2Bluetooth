@@ -75,15 +75,17 @@ void morse(void){
        buzzdot();
      }else if(myChar == '-'){
        buzzdash();
-     }else{
-       Serial.print(myChar);
-       Serial.print(" is unknown character, please use dot . or dash - only \n");
-       swSerial.print(myChar);
-       swSerial.print(" is unknown character, please use dot . or dash - only \n");
-       swSerial.println();
+       }else if(myChar == ' '){
+         delay(1200);
+       }else{
+         Serial.print(myChar);
+         Serial.print(" is unknown character, please use dot . or dash - only \n");
+         swSerial.print(myChar);
+         swSerial.print(" is unknown character, please use dot . or dash - only \n");
+         swSerial.println();
+       }
+       delay(600);
      }
-     delay(600);
-   }
    }
  }
 
