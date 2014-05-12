@@ -193,6 +193,13 @@ namespace BluetoothTest
             return line;
         }
 
+        /*
+        private async void WriteData(Task<bool> setupOK)
+        {
+
+        }
+        */
+
         private async void ReadData(Task<bool> setupOK)
         {
             // Wait for the setup function to finish, when it does, it returns a boolean
