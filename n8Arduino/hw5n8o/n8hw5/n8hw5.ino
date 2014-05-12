@@ -71,6 +71,8 @@ void morse(void){
       
    for(int i=0; i < /*sizeof(myChar)*/Serial.available(); i++){
      char myChar = Serial.read();
+     swSerial.print(myChar);
+     Serial.print(myChar);
      if(myChar == '.'){
        buzzdot();
      }else if(myChar == '-'){
