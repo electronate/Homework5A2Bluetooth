@@ -69,8 +69,8 @@
 
 
 
-//First, we tell PeerFinder to find all paired BT devices
-//   PeerFinder.AlternateIdentities["Bluetooth:PAIRED"] = ""
+////First, we tell PeerFinder to find all paired BT devices
+////   PeerFinder.AlternateIdentities["Bluetooth:PAIRED"] = ""
 
 //Next, get a list of all peers that satisfy those criteria:
 //   var peers = await PeerFinder.FindAllPeersAsync();
@@ -100,6 +100,7 @@
 //   output.WriteBytes(data);
 //   output.StoreAsync();
 
+//Use Arduino Pro (3.3V 8MHz) w/ ATmega328
 
 using System;
 using System.Collections.Generic;
@@ -119,6 +120,7 @@ using Windows.Storage.Streams;
 using System.Diagnostics;
 
 
+
 namespace BluetoothTest
 {
     public partial class MainPage : PhoneApplicationPage
@@ -131,6 +133,7 @@ namespace BluetoothTest
         {
             InitializeComponent();
             ReadData(SetupBluetoothLink());
+            
         }
 
         private async Task<bool> SetupBluetoothLink()
@@ -210,6 +213,15 @@ namespace BluetoothTest
             // Construct a dataReader so we can read junk in
             DataReader input = new DataReader(s.InputStream);
 
+            DataWriter output = new DataWriter(s.OutputStream);
+            this.n8button.Click += async (object sender, RoutedEventArgs e) =>
+                {
+                    output.WriteString(this.n8textbox.Text);
+                    await output.StoreAsync();
+                    this.n8textbox.Text = "";
+                };
+
+
             // Loop forever
             while (true)
             {
@@ -220,5 +232,12 @@ namespace BluetoothTest
                 this.textOutput.Text += line + "\n";
             }
         }
+        /*
+        public bool n8button_Click { get; set;
+            //if(n8button_Click == true)
+            //{
+
+            //}
+        }*/
     }
 }
