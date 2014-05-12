@@ -214,13 +214,185 @@ namespace BluetoothTest
             DataReader input = new DataReader(s.InputStream);
 
             DataWriter output = new DataWriter(s.OutputStream);
+
+            
             this.n8button.Click += async (object sender, RoutedEventArgs e) =>
                 {
-                    output.WriteString(this.n8textbox.Text);
+                   // String myString3;
+                    //output.WriteString(this.n8textbox.Text);
+                    
+
+                    
+                    String myString = this.n8textbox.Text;
+                    String myString2 = "";// = new String "";
+                    //Array myChar = new char[1];
+                    //char[myString.Length] myArray;= myString.ToCharArray;
+                    //Array myArray = myString.ToArray();
+                    //myString.
+                    for (int i = 0; i < myString.Length; i++)
+                    {
+                        String myString3 = myString.Substring(i,1);//CopyTo(i,myChar[0],1,1);
+                        //string myString2 = (string)myArray.GetValue(i);
+                        //citation: http://www.google.com/imgres?imgurl=&imgrefurl=http%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3AInternational_Morse_Code.svg&h=0&w=0&tbnid=UGJ6vAUjTb5jQM&zoom=1&tbnh=255&tbnw=198&docid=o7ACXGZOzqYIBM&tbm=isch&ei=b0dxU9KPEIr9oASg1oD4CQ&ved=0CAUQsCUoAQ
+                        //citation: http://msdn.microsoft.com/en-us/library/06tc147t.aspx
+                        switch (myString3)
+                        {
+                            case " ":
+                                myString2 += " " + " "; // add a pause + " " between characters
+                                break;
+                            case ".":
+                                myString2 += "." + " ";
+                                break;
+                            case "-":
+                                myString2 += "-" + " ";
+                                break;
+                            case "a":
+                            case "A":
+                                myString2 = ".-" + " ";
+                                break;
+                            case "b":
+                            case "B":
+                                myString2 += "-..." + " ";
+                                break;
+                            case "c":
+                            case "C":
+                                myString2 += "-.-." + " ";
+                                break;
+                            case "d":
+                            case "D":
+                                myString2 += "-.." + " ";
+                                break;
+                            case "e":
+                            case "E":
+                                myString2 += "." + " ";
+                                break;
+                            case "f":
+                            case "F":
+                                myString2 += "..-." + " ";
+                                break;
+                            case "g":
+                            case "G":
+                                myString2 += "--." + " ";
+                                break;
+                            case "h":
+                            case "H":
+                                myString2 += "...." + " ";
+                                break;
+                            case "i":
+                            case "I":
+                                myString2 += ".." + " ";
+                                break;
+                            case "j":
+                            case "J":
+                                myString2 += ".---" + " ";
+                                break;
+                            case "k":
+                            case "K":
+                                myString2 += "-.-" + " ";
+                                break;
+                            case "l":
+                            case "L":
+                                myString2 += ".-.." + " ";
+                                break;
+                            case "m":
+                            case "M":
+                                myString2 += "--" + " ";
+                                break;
+                            case "n":
+                            case "N":
+                                myString2 += "-." + " ";
+                                break;
+                            case "o":
+                            case "O":
+                                myString2 += "---" + " ";
+                                break;
+                            case "p":
+                            case "P":
+                                myString2 += ".--." + " ";
+                                break;
+                            case "q":
+                            case "Q":
+                                myString2 += "--.-" + " ";
+                                break;
+                            case "r":
+                            case "R":
+                                myString2 += ".-." + " ";
+                                break;
+                            case "s":
+                            case "S":
+                                myString2 += "..." + " ";
+                                break;
+                            case "t":
+                            case "T":
+                                myString2 += "-" + " ";
+                                break;
+                            case "u":
+                            case "U":
+                                myString2 += "..-" + " ";
+                                break;
+                            case "v":
+                            case "V":
+                                myString2 += "...-" + " ";
+                                break;
+                            case "w":
+                            case "W":
+                                myString2 += ".--" + " ";
+                                break;
+                            case "x":
+                            case "X":
+                                myString2 += "-..-" + " ";
+                                break;
+                            case "y":
+                            case "Y":
+                                myString2 += "-.--" + " ";
+                                break;
+                            case "z":
+                            case "Z":
+                                myString2 += "--.." + " ";
+                                break;
+                            case "1":
+                                myString2 += ".----" + " ";
+                                break;
+                            case "2":
+                                myString2 += "..---" + " ";
+                                break;
+                            case "3":
+                                myString2 += "...--" + " ";
+                                break;
+                            case "4":
+                                myString2 += "....-" + " ";
+                                break;
+                            case "5":
+                                myString2 += "....." + " ";
+                                break;
+                            case "6":
+                                myString2 += "-...." + " ";
+                                break;
+                            case "7":
+                                myString2 += "--..." + " ";
+                                break;
+                            case "8":
+                                myString2 += "---.." + " ";
+                                break;
+                            case "9":
+                                myString2 += "----." + " ";
+                                break;
+                            case "10":
+                                myString2 += "-----" + " ";
+                                break;
+                            default:
+                                //Console.WriteLine("Default case");
+                                break;
+                        }
+
+                    }
+                    output.WriteString(myString2);
                     await output.StoreAsync();
                     this.n8textbox.Text = "";
+                    await Task.Delay(1500);
                 };
 
+            
 
             // Loop forever
             while (true)
@@ -231,6 +403,11 @@ namespace BluetoothTest
                 // Append that line to our TextOutput
                 this.textOutput.Text += line + "\n";
             }
+        }
+
+        private void n8textbox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
         /*
         public bool n8button_Click { get; set;
